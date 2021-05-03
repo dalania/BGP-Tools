@@ -1,14 +1,19 @@
 import React, {useRef} from 'react';
-
+import {  useHistory } from 'react-router-dom';
 import * as Yup from 'yup';
 import {Container, Figure, CardLogin, Form} from './style';
 import imageLogin from '../../assets/imageLogin.svg';
 import Input from './input';
 import Footer from '../../components/Footer';
 import {theme} from '../../styles/themes'
+import {useAuth} from '../../hooks/auth';
+
 export default function Login(){
   theme.background =  true
+
+  const { signIn } = useAuth();
   const formRef = useRef(null);
+  const history = useHistory();
 
   async function handleSubmit(data, {reset}){
 
@@ -17,13 +22,18 @@ export default function Login(){
         login: Yup.string().min(2, 'login incorreto')
         .required('O login  é obrigatório'),
 
-          password: Yup.string().min(8, 'password incorreto')
+          password: Yup.string().min(1, 'password incorreto')
           .required('A senha  é obrigatória')
 
       });
       await schema.validate(data, {
         abortEarly: false,
       })
+      await signIn({
+        email: data.login,
+        password: data.password,
+      });
+      history.push('/home');
       
       
 

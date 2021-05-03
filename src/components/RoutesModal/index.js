@@ -43,7 +43,7 @@ export default function RoutesModal({isOpen, onRequestClose, routes,receivedOrAd
             <tbody>
              
             
-
+              {routes && routes.Message}
               {routes && routes.length > 0 && routes.map((route) => (<tr>
                 <td>{route.Route}</td>
                 <td>{route.Nexthop}</td>

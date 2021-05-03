@@ -16,7 +16,7 @@ export default function Home(){
 
   function handleOPenModal(peer,params){
     setLoading(true);
-    api.post(`http://192.168.1.12:5000/peers/${params}`,{'peer':peer}).then(response => setRoutes(response.data))
+    api.post(`/peers/${params}`,{'peer':peer}).then(response => setRoutes(response.data))
     .catch(error => console.error(error));
     setReceivedOrAdvertisement(params);
     setLoading(false);
@@ -31,7 +31,7 @@ export default function Home(){
   }
 
   useEffect(()=>{
-    api.get('http://192.168.1.12:5000/peers').then(response => setPeers(response.data))
+    api.get('/peers').then(response => setPeers(response.data))
     .catch(error => console.error(error));
 
   },[]);
