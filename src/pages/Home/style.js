@@ -56,7 +56,7 @@ export const Table =  styled.table`
    height: 40px;
  }
  td{
-   padding-top: 20px;
+   padding-top: 10px;
    padding-bottom: 10px;
    button{
      height: 30px;
@@ -67,7 +67,12 @@ export const Table =  styled.table`
      width: 100%;
      max-width: 120px;
     text-align: center;
-    
+    &:disabled{
+      background: #D5D8DE;
+      color: var(--text);
+      cursor: not-allowed;
+
+    }
 
    }
    

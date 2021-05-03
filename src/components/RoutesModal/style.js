@@ -7,6 +7,10 @@ export const HeaderModal =  styled.div`
   padding: 1rem;
   p{
     line-height: 1.4rem;
+    
+    text-transform: capitalize;
+ 
+
 
   }
   
@@ -50,7 +54,6 @@ thead tr th{
   background: none;
 }
 
- 
 
 
   

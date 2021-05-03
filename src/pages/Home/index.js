@@ -1,18 +1,40 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
 import {Container, Content, Figure, Table} from './style';
 import logoImage from '../../assets/logo.svg'
 import Modal from '../../components/RoutesModal';
+import api from '../../services/api'; 
 
 export default function Home(){
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  function handleOPenModal(){
+  const [peers, setPeers] = useState(null);
+  const [routes, setRoutes] = useState(null);
+  const [receivedOrAdvertisement, setReceivedOrAdvertisement] = useState(null);
+
+  const [loading, setLoading] = useState(false);
+
+
+  function handleOPenModal(peer,params){
+    setLoading(true);
+    api.post(`http://192.168.1.12:5000/peers/${params}`,{'peer':peer}).then(response => setRoutes(response.data))
+    .catch(error => console.error(error));
+    setReceivedOrAdvertisement(params);
+    setLoading(false);
     setModalIsOpen(true);
+
   }
+  
 
   function handleCloseModal(){
+    setRoutes(null);
     setModalIsOpen(false);
   }
+
+  useEffect(()=>{
+    api.get('http://192.168.1.12:5000/peers').then(response => setPeers(response.data))
+    .catch(error => console.error(error));
+
+  },[]);
   return(
 
     <>
@@ -27,11 +49,11 @@ export default function Home(){
             <thead>
 
               <tr>
-                <th>IP</th>
+                <th>Peer</th>
                 <th>AS</th>
-                <th>Uptime</th>
-                <th>Status</th>
-                <th >TotalPrefix</th>
+                <th>Up/Down</th>
+                <th>State</th>
+                <th>PrefRcv</th>
                 <th></th>
                 <th></th>
               </tr>
@@ -39,67 +61,29 @@ export default function Home(){
             <tbody>
              
             
-
-              <tr>
-                <td>10.0.0.125</td>
-                <td>61832</td>
-                <td>0288h51m</td>
-                <td>Connect</td>
-                <td>0</td>
+              {peers &&  peers.peers.map(peer => (
+                <tr>
+                <td>{peer.Ip}</td>
+                <td>{peer.Asn}</td>
+                <td>{peer.Uptime}</td>
+                <td>{peer.Status}</td>
+                <td>{peer.TotalPrefix}</td>
                 <td>
-                  <button onClick={handleOPenModal}> advertised-routes</button>
+                {peer.Status === 'Established' ? <button  onClick={() => {handleOPenModal(peer.Ip,'advertised')}}> advertised-routes</button> : <button disabled> advertised-routes</button>}
                 </td>
                 <td>
-                <button onClick={handleOPenModal}> receive-routes</button>
-                </td>
-              </tr>
-
-              <tr>
-                <td>10.0.0.125</td>
-                <td>61832</td>
-                <td>0288h51m</td>
-                <td>Connect</td>
-                <td>0</td>
-                <td>
-                  <button onClick={handleOPenModal}> advertised-routes</button>
-                </td>
-                <td>
-                <button onClick={handleOPenModal}> receive-routes</button>
+                {peer.TotalPrefix < 30 && peer.Status === 'Established' ? <button  onClick={() => {handleOPenModal(peer.Ip,'received')}}> receive-routes</button> : <button disabled> receive-routes</button>}
                 </td>
               </tr>
 
-              <tr>
-                <td>10.0.0.125</td>
-                <td>61832</td>
-                <td>0288h51m</td>
-                <td>Connect</td>
-                <td>0</td>
-                <td>
-                  <button onClick={handleOPenModal}> advertised-routes</button>
-                </td>
-                <td>
-                <button onClick={handleOPenModal}> receive-routes</button>
-                </td>
-              </tr>
+              )
 
-              <tr>
-                <td>10.0.0.125</td>
-                <td>61832</td>
-                <td>0288h51m</td>
-                <td>Connect</td>
-                <td>0</td>
-                <td>
-                  <button onClick={handleOPenModal}> advertised-routes</button>
-                </td>
-                <td>
-                <button onClick={handleOPenModal}> receive-routes</button>
-                </td>
-              </tr>
-             
+              )}
+              
             </tbody>
 
           </Table>
-          <Modal isOpen={modalIsOpen} onRequestClose={handleCloseModal} />
+          <Modal receivedOrAdvertisement={receivedOrAdvertisement} routes={routes} isOpen={modalIsOpen} onRequestClose={handleCloseModal} />
         </Content>
       </Container>
     </>

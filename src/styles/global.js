@@ -1,4 +1,4 @@
-import {createGlobalStyle} from 'styled-components';
+import {createGlobalStyle,css} from 'styled-components';
 
 export default createGlobalStyle`
 
@@ -31,6 +31,10 @@ html{
 body{
   font-family: 'Roboto', sans-serif;
   background: var(--background);
+  ${(props) => props.Theme.background && css`
+  background: white;
+  `}
+
   color: #495057;
 }
 
@@ -51,6 +55,7 @@ body{
 }
 
 .react-modal-content{
+  overflow-y: auto;
   margin-top: 250px;
   width: 100%;
   max-width: 900px;
@@ -59,7 +64,25 @@ body{
   outline: none;
   color: #495057;
   height: 500px;
+  /* width */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
  
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
   
   }
 

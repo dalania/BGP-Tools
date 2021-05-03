@@ -3,7 +3,7 @@ import {HeaderModal, Table} from './style';
 import { MdClose, } from "react-icons/md";
 
 
-export default function RoutesModal({isOpen, onRequestClose}){
+export default function RoutesModal({isOpen, onRequestClose, routes,receivedOrAdvertisement}){
   return (
 
     <>
@@ -16,8 +16,8 @@ export default function RoutesModal({isOpen, onRequestClose}){
 
       <HeaderModal>
       <p>
-      <p> Receive Routes </p>
-      <p> Número Total de Rotas: 19</p>
+      <p> {receivedOrAdvertisement && receivedOrAdvertisement} Routes </p>
+      <p> Número Total de Rotas: {routes && routes.length}</p>
 
       </p>
         <div>
@@ -44,27 +44,11 @@ export default function RoutesModal({isOpen, onRequestClose}){
              
             
 
-              <tr>
-                <td>45.174.139.0/24</td>
-                <td>10.240.32.22</td>
-                <td>53153, 263940, 268865i</td>
-              </tr>
-              <tr>
-                <td>45.174.139.0/24</td>
-                <td>10.240.32.22</td>
-                <td>53153, 263940, 268865i</td>
-              </tr>
-              <tr>
-                <td>45.174.139.0/24</td>
-                <td>10.240.32.22</td>
-                <td>53153, 263940, 268865i</td>
-              </tr>
-              
-              <tr>
-                <td>45.174.139.0/24</td>
-                <td>10.240.32.22</td>
-                <td>53153, 263940, 268865i</td>
-              </tr>
+              {routes && routes.length > 0 && routes.map((route) => (<tr>
+                <td>{route.Route}</td>
+                <td>{route.Nexthop}</td>
+                <td>{route.AsPath.map( aspath =>(`${aspath}, `))}</td>
+              </tr>))}
             </tbody>
 
           </Table>
