@@ -29,11 +29,10 @@ export const Figure =  styled.section`
 `;
 
 export const Table =  styled.table`
- width: 95%;
+ width: 100%;
  max-width: 1300px;
  flex: 1;
  border-collapse: collapse;
- margin-top: 20px;
  
  
  

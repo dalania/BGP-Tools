@@ -5,7 +5,9 @@ import logoImage from '../../assets/logo.svg'
 import Modal from '../../components/RoutesModal';
 import api from '../../services/api'; 
 
+
 export default function Home(){
+
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [peers, setPeers] = useState(null);
   const [routes, setRoutes] = useState(null);
