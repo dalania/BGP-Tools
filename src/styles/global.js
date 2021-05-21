@@ -8,7 +8,7 @@ export default createGlobalStyle`
   box-sizing: border-box;
 }
 :root{
-  --background: #D6D8E5;
+  --background: #F8F9FA;
   --backgroundTable: #1A345D;
   --text: #495057;
 

@@ -1,10 +1,11 @@
 import {useEffect, useState} from 'react';
 
-import {Container, Content, Figure, Table} from './style';
-import logoImage from '../../assets/logo.svg'
+import {Container, Content, Figure, Table, Section} from './style';
+import logoImage from '../../assets/logo.svg';
+import searchSvg from '../../assets/search.svg';
 import Modal from '../../components/RoutesModal';
 import api from '../../services/api'; 
-
+import Header from '../../components/Header'
 
 export default function Home(){
 
@@ -37,57 +38,72 @@ export default function Home(){
     .catch(error => console.error(error));
 
   },[]);
-  return(
-
+  return (
     <>
+     <Header />
+    
+    <Container>
+    
+      <Content>
 
-      <Container>
-        <Figure>
-          <img src={logoImage} alt=""/>
-
-        </Figure>
-        <Content>
-          <Table>
+        <Section>
+        <div className="tbl-header">
+          <table>
             <thead>
-
               <tr>
-                <th>Peer</th>
+              <th>Peer</th>
                 <th>AS</th>
                 <th>Up/Down</th>
                 <th>State</th>
                 <th>PrefRcv</th>
-                <th></th>
-                <th></th>
+                <th>advertised-routes</th>
+                <th>receive-routes</th>
               </tr>
             </thead>
-            <tbody>
-             
-            
-              {peers &&  peers.peers.map(peer => (
-                <tr>
-                <td>{peer.Ip}</td>
-                <td>{peer.Asn}</td>
-                <td>{peer.Uptime}</td>
-                <td>{peer.Status}</td>
-                <td>{peer.TotalPrefix}</td>
-                <td>
-                {peer.Status === 'Established' ? <button  onClick={() => {handleOPenModal(peer.Ip,'advertised')}}> advertised-routes</button> : <button disabled> advertised-routes</button>}
-                </td>
-                <td>
-                {peer.TotalPrefix < 30 && peer.Status === 'Established' ? <button  onClick={() => {handleOPenModal(peer.Ip,'received')}}> receive-routes</button> : <button disabled> receive-routes</button>}
-                </td>
-              </tr>
+          </table>
+        </div>
 
-              )
+        <div className="tbl-content">
+          <table>
+          <tbody>
+            {peers &&  peers.peers.map(peer => (
+                  <tr>
+                  <td>{peer.Ip}</td>
+                  <td>{peer.Asn}</td>
+                  <td>{peer.Uptime}</td>
+                  <td>{peer.Status}</td>
+                  <td>{peer.TotalPrefix}</td>
+                  <td>
+                  {peer.Status === 'Established' ? <button  onClick={() => {handleOPenModal(peer.Ip,'advertised')}}><img src={searchSvg} alt="Pesquisar" /> </button> : <button disabled> <img src={searchSvg} alt="Pesquisar" /></button>}
+                  </td>
+                  <td>
+                  {peer.TotalPrefix < 30 && peer.Status === 'Established' ? <button  onClick={() => {handleOPenModal(peer.Ip,'received')}}> <img src={searchSvg} alt="Pesquisar" /></button> : <button disabled> <img src={searchSvg} alt="Pesquisar" /></button>}
+                  </td>
+                </tr>
 
-              )}
+                )
+
+                )}
               
             </tbody>
+            </table>
 
-          </Table>
-          <Modal receivedOrAdvertisement={receivedOrAdvertisement} routes={routes} isOpen={modalIsOpen} onRequestClose={handleCloseModal} />
-        </Content>
-      </Container>
+
+         
+        </div>
+        <p> Total Peers: {peers && peers.stastistic.TotalEstablished } - Estabelecido: {peers && peers.stastistic.TotalPeers } </p>
+
+        </Section>
+       
+      
+       
+       
+
+      </Content>
+    </Container>
     </>
+
   );
+    
+  
 }

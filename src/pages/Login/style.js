@@ -53,7 +53,8 @@ export const Form = styled(Unform)`
  
 
   input, button{
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     border: 1px solid rgba(187, 187, 187, 0.25);
     height: 35px;
     border-radius: 6px;
