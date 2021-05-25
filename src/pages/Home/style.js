@@ -5,7 +5,9 @@ export const Container =  styled.section`
   flex-direction: column;
   align-items: center;
   margin-left: 200px;
-
+  >div{
+  margin-top: 40vh;
+}
 
 `;
 export const Content =  styled.main`

@@ -1,11 +1,12 @@
-import {useEffect, useState} from 'react';
+import React,{useEffect, useState,useCallback} from 'react';
 
-import {Container, Content, Figure, Table, Section} from './style';
-import logoImage from '../../assets/logo.svg';
+import {Container, Content, Section} from './style';
 import searchSvg from '../../assets/search.svg';
 import Modal from '../../components/RoutesModal';
 import api from '../../services/api'; 
 import Header from '../../components/Header'
+import { PushSpinner } from "react-spinners-kit";
+
 
 export default function Home(){
 
@@ -17,15 +18,15 @@ export default function Home(){
   const [loading, setLoading] = useState(false);
 
 
-  function handleOPenModal(peer,params){
+  const handleOPenModal = useCallback(async (peer,params) =>{
     setLoading(true);
-    api.post(`/peers/${params}`,{'peer':peer}).then(response => setRoutes(response.data))
-    .catch(error => console.error(error));
+    const response = await api.post(`/peers/${params}`,{'peer':peer})
+    setRoutes(response.data)
     setReceivedOrAdvertisement(params);
     setLoading(false);
     setModalIsOpen(true);
 
-  }
+  },[])
   
 
   function handleCloseModal(){
@@ -43,7 +44,18 @@ export default function Home(){
      <Header />
     
     <Container>
-    
+    {loading ? 
+    <div>
+      <div>
+      <PushSpinner size={30}
+                color="#686769"
+                loading={loading}
+                
+      /> 
+
+      </div>
+      
+    </div> : 
       <Content>
 
         <Section>
@@ -94,8 +106,8 @@ export default function Home(){
         <p> Total Peers: {peers && peers.stastistic.TotalEstablished } - Estabelecido: {peers && peers.stastistic.TotalPeers } </p>
 
         </Section>
-        <Modal receivedOrAdvertisement={receivedOrAdvertisement} routes={routes} isOpen={modalIsOpen} onRequestClose={handleCloseModal} />
-      </Content>
+        <Modal loading={loading} receivedOrAdvertisement={receivedOrAdvertisement} routes={routes} isOpen={modalIsOpen} onRequestClose={handleCloseModal} />
+      </Content>}
     </Container>
     </>
 

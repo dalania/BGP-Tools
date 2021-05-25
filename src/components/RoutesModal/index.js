@@ -1,10 +1,13 @@
 import Modal from 'react-modal';
 import {HeaderModal, Table} from './style';
 import { MdClose, } from "react-icons/md";
+import React from 'react'
+
 
 
 export default function RoutesModal({isOpen, onRequestClose, routes,receivedOrAdvertisement}){
   Modal.setAppElement('#root')
+
 
   return (
 
@@ -32,6 +35,8 @@ export default function RoutesModal({isOpen, onRequestClose, routes,receivedOrAd
        
         
       </HeaderModal>
+
+     
       <Table>
             <thead>
 

@@ -16,7 +16,7 @@ export default function Ping(){
 
 
   useEffect(()=>{
-    api.get('/ips').then((response)=>setSource(response.data))
+    api.post('/sources',{metodo: 'ping'}).then((response)=>setSource(response.data))
     .catch((error)=>console.log(error))
     
 
