@@ -4,6 +4,8 @@ import { MdClose, } from "react-icons/md";
 
 
 export default function RoutesModal({isOpen, onRequestClose, routes,receivedOrAdvertisement}){
+  Modal.setAppElement('#root')
+
   return (
 
     <>
@@ -15,11 +17,11 @@ export default function RoutesModal({isOpen, onRequestClose, routes,receivedOrAd
     >
 
       <HeaderModal>
-      <p>
+      <div>
       <p> {receivedOrAdvertisement && receivedOrAdvertisement} Routes </p>
       <p> Número Total de Rotas: {routes && routes.length}</p>
 
-      </p>
+      </div>
         <div>
         <button onClick={onRequestClose}>
           <MdClose />
@@ -44,7 +46,8 @@ export default function RoutesModal({isOpen, onRequestClose, routes,receivedOrAd
              
             
               {routes && routes.Message}
-              {routes && routes.length > 0 && routes.map((route) => (<tr>
+              {routes && routes.length > 0 && routes.map((route) => (
+              <tr key={route.Route}>
                 <td>{route.Route}</td>
                 <td>{route.Nexthop}</td>
                 <td>{route.AsPath.map( aspath =>(`${aspath}, `))}</td>

@@ -11,6 +11,8 @@ height: 60px;
 background: var(--backgroundTable);
 display: flex;
 justify-content: space-between;
+position: fixed;
+top: 0;
 figure{
   margin-left: 24px;
 }
@@ -23,9 +25,7 @@ export const Logout = styled.div`
   margin-top: 20px;
   color: #FFFFFF;
   p{
-    text-align: center;
-    display: flex;
-    justify-content: center;
+    
     
   }
 
@@ -37,9 +37,12 @@ export const Logout = styled.div`
   }
 
   button{
+    text-align: center;
+    display: flex;
+    justify-content: center;
     border: 0;
     background: transparent;
-    color: #495057;
+    color: #FFFFFF;
 
    
   }
@@ -48,12 +51,16 @@ export const Logout = styled.div`
 
 export const NavVertical = styled.nav`
 
-  width: 100%;
-  max-width:200px;
   
-  position:fixed;
-  height:100%;
-  background:#FFFFFF;
+  background: #FFFFFF;
+
+
+
+  width: 200px;
+
+  position: fixed;
+  margin-top: 60px;
+  height: 100%;
 
 `;
 

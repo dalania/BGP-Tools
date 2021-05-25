@@ -20,7 +20,7 @@ export default function Header(){
           <img src={LogoBgp} alt="Logo BgpTools" />
         </figure>
         <Logout>
-            <p> <button onClick={signOut}> <FiLogOut /></button> Sair </p>
+            <button onClick={signOut}> <FiLogOut /> Sair</button> 
         </Logout>
 
       </NavTop>

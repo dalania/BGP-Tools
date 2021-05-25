@@ -67,7 +67,7 @@ export default function Home(){
           <table>
           <tbody>
             {peers &&  peers.peers.map(peer => (
-                  <tr>
+                  <tr key={peer.Ip}>
                   <td>{peer.Ip}</td>
                   <td>{peer.Asn}</td>
                   <td>{peer.Uptime}</td>
@@ -94,11 +94,7 @@ export default function Home(){
         <p> Total Peers: {peers && peers.stastistic.TotalEstablished } - Estabelecido: {peers && peers.stastistic.TotalPeers } </p>
 
         </Section>
-       
-      
-       
-       
-
+        <Modal receivedOrAdvertisement={receivedOrAdvertisement} routes={routes} isOpen={modalIsOpen} onRequestClose={handleCloseModal} />
       </Content>
     </Container>
     </>
