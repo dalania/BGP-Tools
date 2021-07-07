@@ -8,7 +8,7 @@
 
 BGP Tools é um sistema para gerenciamento de Border Gateway Protocol.
 
----
+
 
 ## Tecnologias
 
@@ -20,7 +20,7 @@ BGP Tools é um sistema para gerenciamento de Border Gateway Protocol.
 * [Python](https://www.python.org/doc/)
 * [Flask](https://flask.palletsprojects.com/en/2.0.x/)
 
-## ✒️ Autores
+##  Autores
 * [Dalania Silva](https://github.com/linkParaPerfil) - *Desenvolvedora Frontend da aplicação*  
 
 * [Ronikleyton Figueiredo](https://github.com/linkParaPerfil) - *Desenvolvedor Backend da aplicação*  
