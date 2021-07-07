@@ -3,22 +3,10 @@
     <br>
     BGP TOOLS
 </h1>
-
-<h4 align="center">
- Sistema para gerenciamento de BGP
-</h4>
-
-
-<p align="center">
-  <a href="#rocket-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#information_source-how-to-use">How To Use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#memo-license">License</a>
-</p>
-
-
 ## Sobre o projeto
 
 BGP Tools é um sistema para gerenciamento de Border Gateway Protocol.
+
 --
 
 ## 🛠️ Construído com
