@@ -22,12 +22,15 @@
 
 ## :rocket: Tecnologias
 
-Este projeto foi desenvolvido com as seguintes tecnoligias
+### **Backend** ([Python](https://www.python.org/doc/))
+
+-  [Flask](https://reactjs.org/)
+-  
+### **Frontend** ([Python](https://www.python.org/doc/))
 
 -  [ReactJS](https://reactjs.org/)
 -  [Axios](https://github.com/axios/axios)
 -  [styled-components](https://www.styled-components.com/)
--  [VS Code][vc] with [EditorConfig][vceditconfig] and [ESLint][vceslint]
 
 ---
 
