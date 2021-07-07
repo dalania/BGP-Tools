@@ -3,13 +3,14 @@
     <br>
     BGP TOOLS
 </h1>
+
 ## Sobre o projeto
 
 BGP Tools é um sistema para gerenciamento de Border Gateway Protocol.
 
 --
 
-## 🛠️ Construído com
+## Tecnologias
 
 
 * [ReactJS](https://reactjs.org/)
