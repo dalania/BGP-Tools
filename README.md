@@ -25,7 +25,7 @@
 ### **Backend** ([Python](https://www.python.org/doc/))
 
 -  [Flask](https://reactjs.org/)
--  
+
 ### **Frontend** ([Python](https://www.python.org/doc/))
 
 -  [ReactJS](https://reactjs.org/)
