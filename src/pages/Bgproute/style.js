@@ -1,3 +1,4 @@
+import {Form as Unform } from '@unform/web'
 
 import styled from 'styled-components';
 export const Container =  styled.section`
@@ -65,6 +66,11 @@ margin: 10px;
     border-collapse: collapse;
     text-align: left;
     
+  .best{
+    td{
+      font-weight: 700;
+    }
+  }
 
   th{
     padding: 10px 15px;
@@ -112,6 +118,81 @@ margin: 10px;
   }
 
 }
+
+`;
+
+export const Search =  styled.section`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-direction: wrap;
+  margin-top: 30px;
+
+`;
+
+
+export const Form = styled(Unform)`
+  width: 100%;
+  display: flex;
+  
+  font-size: 1rem;
+  flex-direction: wrap;
+
+  
+ 
+  
+  border: none;
+ span{
+  margin: 20px;
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   flex-direction: wrap;
+
+ }
+  
+  input, select{
+    font-size: 1rem;
+    flex: 1;
+    height: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    padding-left: 8px;
+    margin-top: 3px;
+    background: none;
+  
+  }
+  option:nth-child(1){
+   display: none;
+ }
+  label{
+    font-size: 1rem;
+    color: #495057;
+    
+  }
+  input{
+    outline: none;
+
+  }
+  button{
+    margin: 20px;
+    margin-top: 23px;
+
+    height: 40px;
+    width: 200px;
+    border-radius: 5px;
+    border: none;
+    background-color: #1A345D;
+    color: #FFFFFF;
+    font-size: 1rem;
+    text-align: center;
+    align-items: center;
+            
+    }
+
+
+
 
 `;
 

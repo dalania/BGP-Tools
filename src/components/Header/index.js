@@ -4,7 +4,6 @@
   import RouteSvg from '../../assets/route.svg';
   import ComputerSvg from '../../assets/computer.svg';
   import { AiOutlineHome } from 'react-icons/ai';
-  import {  BiDroplet } from 'react-icons/bi';
   import { RiRouteLine } from 'react-icons/ri';
   import {FiLogOut} from 'react-icons/fi';
   import {useAuth} from '../../hooks/auth';

@@ -4,7 +4,6 @@ import * as Yup from 'yup';
 import {Container, Figure, CardLogin, Form} from './style';
 import imageLogin from '../../assets/imageLogin.svg';
 import Input from './input';
-import Footer from '../../components/Footer';
 import {theme} from '../../styles/themes'
 import {useAuth} from '../../hooks/auth';
 

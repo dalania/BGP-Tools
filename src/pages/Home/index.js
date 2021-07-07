@@ -13,6 +13,8 @@ export default function Home(){
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [peers, setPeers] = useState(null);
   const [routes, setRoutes] = useState(null);
+  const [asNames, setAsNames] = useState([]);
+
   const [receivedOrAdvertisement, setReceivedOrAdvertisement] = useState(null);
 
   const [loading, setLoading] = useState(false);
@@ -34,15 +36,33 @@ export default function Home(){
     setModalIsOpen(false);
   }
 
+  const getAsName = useCallback (async ( peers ) => {
+
+    const names = peers.map((peer) => 
+       api.post('https://api.asrank.caida.org/v2/graphql',{ "query":`{ asn(asn:"${peer.Asn}"){ asn organization { orgName } } }`})
+     )
+    let asNames = await Promise.all(names);
+    asNames = asNames.map((name)=> ( name.data.data.asn.asn >= 64512 && name.data.data.asn.asn <= 65534 ? "Private" :name.data.data.asn.organization.orgName))
+    setAsNames(asNames)
+  },[])
+
   useEffect(()=>{
-    api.get('/peers').then(response => setPeers(response.data))
+    api.get('/peers').then(response => {
+        setPeers(response.data)
+        getAsName(response.data.peers)
+    })
     .catch(error => console.error(error));
 
-  },[]);
+  },[getAsName]);
+
+  
+
+  
+
   return (
     <>
      <Header />
-    
+     
     <Container>
     {loading ? 
     <div>
@@ -64,7 +84,7 @@ export default function Home(){
             <thead>
               <tr>
               <th>Peer</th>
-                <th>AS</th>
+                <th>AS Name</th>
                 <th>Up/Down</th>
                 <th>State</th>
                 <th>PrefRcv</th>
@@ -78,10 +98,10 @@ export default function Home(){
         <div className="tbl-content">
           <table>
           <tbody>
-            {peers &&  peers.peers.map(peer => (
+            {peers && peers.peers.lenght === asNames.lenght  &&  peers.peers.map((peer,index) => (
                   <tr key={peer.Ip}>
                   <td>{peer.Ip}</td>
-                  <td>{peer.Asn}</td>
+                  <td>{asNames[index] && asNames[index].slice(0,17)}</td>
                   <td>{peer.Uptime}</td>
                   <td>{peer.Status}</td>
                   <td>{peer.TotalPrefix}</td>
