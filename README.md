@@ -23,7 +23,6 @@ BGP Tools é um sistema para gerenciamento de Border Gateway Protocol.
 
 ## 🛠️ Construído com
 
-Mencione as ferramentas que você usou para criar seu projeto
 
 * [ReactJS](https://reactjs.org/)
 * [styled-components](https://maven.apache.org/) 
@@ -33,11 +32,10 @@ Mencione as ferramentas que você usou para criar seu projeto
 * [Flask](https://flask.palletsprojects.com/en/2.0.x/)
 
 ## ✒️ Autores
-
-* [Ronikleyton Figueiredo](https://github.com/linkParaPerfil) - *Desenvolvedor Backend da aplicação*  
 * [Dalania Silva](https://github.com/linkParaPerfil) - *Desenvolvedora Frontend da aplicação*  
 
+* [Ronikleyton Figueiredo](https://github.com/linkParaPerfil) - *Desenvolvedor Backend da aplicação*  
+
 ---
-⌨️ com ❤️ por [Armstrong Lohãns](https://gist.github.com/lohhans) 😊
 
 Feito ♥ by Dalania Silva :wave: [Get in touch!](https://www.linkedin.com/in/dalania-silva-851107175/)
