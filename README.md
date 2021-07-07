@@ -16,7 +16,7 @@
 </p>
 
 
-# Sobre o projeto
+## Sobre o projeto
 
 BGP Tools é um sistema para gerenciamento de Border Gateway Protocol.
 --
