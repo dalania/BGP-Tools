@@ -16,7 +16,7 @@ export const Content =  styled.main`
   background: #FFFFFF;
   margin-top: 120px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  height: 400px;
+  height: 520px;
   margin-right: 10px;
   margin-left: 10px;
   
@@ -40,7 +40,7 @@ p{
 margin: 10px;
 
 .tbl-content{
-    max-height:300px;
+    max-height:500px;
     overflow-y:auto;
     margin-top: 5px;
     border-top: 1px solid rgba(255,255,255,0.3);

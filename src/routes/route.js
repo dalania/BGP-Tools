@@ -13,7 +13,6 @@ const Route = ({
 }) => {
   const { user } = useAuth();
   if (isPrivate === !!user){
-    console.log(user)
   }
   return (
     <ReactDOMRoute

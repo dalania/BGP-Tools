@@ -1,4 +1,5 @@
 import React, { createContext, useCallback, useState, useContext } from 'react';
+import {decode} from 'jsonwebtoken'
 import api from '../services/api';
 
 const AuthContext = createContext();
@@ -7,6 +8,11 @@ export const AuthProvider = ({ children }) => {
   const [data, setData] = useState(() => {
     const token = localStorage.getItem('BGP:token');
     const user = localStorage.getItem('BGP:user');
+
+    const { exp } = decode(token);
+    if (Date.now() >= exp * 1000) {
+      return false;
+    }
 
     if (token && user) {
       api.defaults.headers.authorization = `Bearer ${token}`;
@@ -23,7 +29,6 @@ export const AuthProvider = ({ children }) => {
 
   const signIn = useCallback(async ({ email, password }) => {
     const response = await api.post('/auth', { user: email, password:password });
-    console.log(response.data)
     const { token, user } = response.data;
     localStorage.setItem('BGP:token', token);
     localStorage.setItem('BGP:user', JSON.stringify(user));
