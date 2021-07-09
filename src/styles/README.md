@@ -16,28 +16,29 @@
 </p>
 
 
-<p align="center">
-  <img alt="Demo on Netlify" src="https://res.cloudinary.com/lukemorales/image/upload/v1563425600/readme_logos/rocketshoes-native_gsjofr.gif">
-</p>
+## Sobre o projeto
+---
 
-## :rocket: Technologies
+BGP Tools é um sistema para gerenciamento de Border Gateway Protocol.
+--
 
-This project was developed at the [RocketSeat GoStack Bootcamp](https://rocketseat.com.br/bootcamp) with the following technologies:
+## 🛠️ Construído com
 
--  [ReactJS](https://reactjs.org/)
--  [Redux](https://redux.js.org/)
--  [Redux-Saga](https://redux-saga.js.org/)
--  [React Navigation](https://reactnavigation.org/)
--  [Axios](https://github.com/axios/axios)
--  [Immer](https://github.com/immerjs/immer)
--  [NumeralJS](http://numeraljs.com/)
--  [styled-components](https://www.styled-components.com/)
--  [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
--  [react-native-shimmer-placeholder](https://github.com/tomzaku/react-native-shimmer-placeholder)
--  [react-native-linear-gradient](https://github.com/react-native-community/react-native-linear-gradient)
--  [Reactotron](https://infinite.red/reactotron)
--  [VS Code][vc] with [EditorConfig][vceditconfig] and [ESLint][vceslint]
+Mencione as ferramentas que você usou para criar seu projeto
+
+* [ReactJS](https://reactjs.org/)
+* [styled-components](https://maven.apache.org/) 
+* [Unform](https://maven.apache.org/) 
+* [VS Code](https://code.visualstudio.com/) 
+* [Python](https://www.python.org/doc/)
+* [Flask](https://flask.palletsprojects.com/en/2.0.x/)
+
+## ✒️ Autores
+
+* [Ronikleyton Figueiredo](https://github.com/linkParaPerfil) - *Desenvolvedor Backend da aplicação*  
+* [Dalania Silva](https://github.com/linkParaPerfil) - *Desenvolvedora Frontend da aplicação*  
 
 ---
+⌨️ com ❤️ por [Armstrong Lohãns](https://gist.github.com/lohhans) 😊
 
 Feito ♥ by Dalania Silva :wave: [Get in touch!](https://www.linkedin.com/in/dalania-silva-851107175/)
