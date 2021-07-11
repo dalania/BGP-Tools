@@ -9,10 +9,13 @@ export const AuthProvider = ({ children }) => {
     const token = localStorage.getItem('BGP:token');
     const user = localStorage.getItem('BGP:user');
 
-    const { exp } = decode(token);
-    if (Date.now() >= exp * 1000) {
-      return false;
+    if(token){
+      const { exp } = decode(token);
+      if (Date.now() >= exp * 1000) {
+        return false;
     }
+    }
+    
 
     if (token && user) {
       api.defaults.headers.authorization = `Bearer ${token}`;
