@@ -97,7 +97,7 @@ export default function Ping(){
       <Form ref={formRef} onSubmit={handleSubmit}> 
       
           
-          <span>
+         
           <Select 
                   name="source"
                   options={source}
@@ -112,12 +112,12 @@ export default function Ping(){
                     ))}
                 </Select>
 
-          </span>
+         
 
-          <span>
+          
           <Input type="text" name="destination" placeholder="Digite o ip de destino"/>
 
-          </span>
+         
           
           <button> Buscar</button>
       </Form>

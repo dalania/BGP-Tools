@@ -1,6 +1,6 @@
 import React,{useEffect, useState,useCallback} from 'react';
 
-import {Container, Content, Section} from './style';
+import {Container, Content, Section, Table} from './style';
 import searchSvg from '../../assets/search.svg';
 import Modal from '../../components/RoutesModal';
 import api from '../../services/api'; 
@@ -77,27 +77,20 @@ export default function Home(){
       
     </div> : 
       <Content>
+        <Table>
+          <thead>
+          <tr>
+            <th>Peer</th>
+            <th>AS Name</th>
+            <th>Up/Down</th>
+            <th>State</th>
+            <th>PrefRcv</th>
+            <th>advertised-routes</th>
+            <th>receive-routes</th>
+          </tr>
+        </thead>
 
-        <Section>
-        <div className="tbl-header">
-          <table>
-            <thead>
-              <tr>
-              <th>Peer</th>
-                <th>AS Name</th>
-                <th>Up/Down</th>
-                <th>State</th>
-                <th>PrefRcv</th>
-                <th>advertised-routes</th>
-                <th>receive-routes</th>
-              </tr>
-            </thead>
-          </table>
-        </div>
-
-        <div className="tbl-content">
-          <table>
-          <tbody>
+         <tbody>
             {peers && peers.peers.lenght === asNames.lenght  &&  peers.peers.map((peer,index) => (
                   <tr key={peer.Ip}>
                   <td>{peer.Ip}</td>
@@ -118,14 +111,9 @@ export default function Home(){
                 )}
               
             </tbody>
-            </table>
+        </Table>
 
-
-         
-        </div>
-        <p> Total Peers: {peers && peers.stastistic.TotalEstablished } - Estabelecido: {peers && peers.stastistic.TotalPeers } </p>
-
-        </Section>
+      
         <Modal loading={loading} receivedOrAdvertisement={receivedOrAdvertisement} routes={routes} isOpen={modalIsOpen} onRequestClose={handleCloseModal} />
       </Content>}
     </Container>

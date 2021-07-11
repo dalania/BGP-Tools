@@ -99,7 +99,7 @@ export default function Traceroute(){
       <Form ref={formRef} onSubmit={handleSubmit}> 
       
           
-          <span>
+          
           <Select 
                   name="source"
                   options={source}
@@ -114,12 +114,12 @@ export default function Traceroute(){
                     ))}
                 </Select>
 
-          </span>
+         
 
-          <span>
+          
           <Input type="text" name="destination" placeholder="Digite o ip de destino"/>
 
-          </span>
+         
           
           <button> Buscar</button>
       </Form>

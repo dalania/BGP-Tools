@@ -16,13 +16,16 @@ export const Container =  styled.section`
 
 `;
 export const Content =  styled.main`
-  max-width: 1150px;
+  width: 90%;
+  
+  /* max-width: 1150px; */
   /*max-width: 1300px; */
   background: #FFFFFF;
-  margin-top: 120px;
+  margin-top: 90px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   margin-right: 10px;
   margin-left: 10px;
+  min-height: 250px;
   
   `;
 
@@ -32,6 +35,7 @@ export const Search =  styled.section`
   justify-content: center;
   flex-direction: row;
   flex-direction: wrap;
+  flex-wrap: wrap;
   margin-top: 30px;
 
 `;
@@ -40,61 +44,37 @@ export const Search =  styled.section`
 export const Form = styled(Unform)`
   width: 100%;
   display: flex;
-  
+  justify-content: center;
   font-size: 1rem;
-  flex-direction: wrap;
-
-  
- 
-  
+  flex-wrap: wrap;
   border: none;
- span{
-  margin: 20px;
-   width: 100%;
-   display: flex;
-   flex-direction: column;
-   flex-direction: wrap;
 
- }
-  
-  input, select{
-    font-size: 1rem;
+  select, input{
     flex: 1;
-    height: 40px;
     border: 1px solid rgba(0, 0, 0, 0.25);
     border-radius: 5px;
-    padding-left: 8px;
-    margin-top: 3px;
     background: none;
-  
+    margin: 15px;
+    height: 35px;
+    padding-left: 5px;
   }
-  option:nth-child(1){
-   display: none;
- }
-  label{
-    font-size: 1rem;
-    color: #495057;
-    
-  }
-  input{
-    outline: none;
 
-  }
   button{
-    margin: 20px;
-    margin-top: 23px;
-
-    height: 40px;
-    width: 200px;
-    border-radius: 5px;
-    border: none;
-    background-color: #1A345D;
     color: #FFFFFF;
-    font-size: 1rem;
-    text-align: center;
-    align-items: center;
-            
+    text-align:  center;
+    width: 80px;
+    border: none;
+    height: 35px;
+    margin: 15px;
+    background: #1A345D;
+    border-radius: 5px; 
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    &:hover{
+      filter: brightness(0.9);
     }
+  }
+ 
 
 
 
