@@ -56,7 +56,7 @@ body{
 
 .react-modal-content{
   overflow-y: auto;
-  margin-top: 250px;
+  margin-top: 15vh;
   width: 100%;
   max-width: 900px;
   background: #FFFFFF;

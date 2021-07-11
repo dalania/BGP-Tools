@@ -1,6 +1,9 @@
 import React,{useEffect, useState,useCallback} from 'react';
 
-import {Container, Content, Section, Table} from './style';
+import { CgMoreR} from 'react-icons/cg';
+
+
+import {Container, Content, Section, Table, P} from './style';
 import searchSvg from '../../assets/search.svg';
 import Modal from '../../components/RoutesModal';
 import api from '../../services/api'; 
@@ -85,8 +88,8 @@ export default function Home(){
             <th>Up/Down</th>
             <th>State</th>
             <th>PrefRcv</th>
-            <th>advertised-routes</th>
-            <th>receive-routes</th>
+            <th>Advertised Routes</th>
+            <th>Receive Routes</th>
           </tr>
         </thead>
 
@@ -96,13 +99,22 @@ export default function Home(){
                   <td>{peer.Ip}</td>
                   <td>{asNames[index] && asNames[index].slice(0,17)}</td>
                   <td>{peer.Uptime}</td>
-                  <td>{peer.Status}</td>
+                  <td > <P Established={peer.Status === 'Established'
+                    ? 'Established'
+                    :'Active'}> {peer.Status} 
+                  </P></td>
                   <td>{peer.TotalPrefix}</td>
-                  <td>
-                  {peer.Status === 'Established' ? <button  onClick={() => {handleOPenModal(peer.Ip,'advertised')}}><img src={searchSvg} alt="Pesquisar" /> </button> : <button disabled> <img src={searchSvg} alt="Pesquisar" /></button>}
+
+                  <td className="center">
+                  {peer.Status === 'Established' 
+                  ? <button  className="center" onClick={() => {handleOPenModal(peer.Ip,'advertised')}}><CgMoreR />
+                  </button> : <button disabled> <CgMoreR /></button>}
                   </td>
-                  <td>
-                  {peer.TotalPrefix < 30 && peer.Status === 'Established' ? <button  onClick={() => {handleOPenModal(peer.Ip,'received')}}> <img src={searchSvg} alt="Pesquisar" /></button> : <button disabled> <img src={searchSvg} alt="Pesquisar" /></button>}
+
+                  <td  className="center">
+                  {peer.TotalPrefix < 30 && peer.Status === 'Established'
+                   ? <button className="center" onClick={() => {handleOPenModal(peer.Ip,'received')}}><CgMoreR />
+                   </button> : <button disabled><CgMoreR /></button>}
                   </td>
                 </tr>
 

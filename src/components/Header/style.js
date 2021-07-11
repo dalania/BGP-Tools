@@ -1,7 +1,6 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 export const Container = styled.div`
-
 
 `;
 
@@ -105,6 +104,7 @@ export const Li =  styled.li`
     border-radius: 6px;
     background:#F8F9FA;
     flex: 1;
+    
   }
   
   

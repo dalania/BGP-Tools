@@ -26,6 +26,7 @@ export const Content =  styled.main`
   margin-right: 10px;
   margin-left: 10px;
   min-height: 250px;
+  border-radius: 6px;
   
   `;
 

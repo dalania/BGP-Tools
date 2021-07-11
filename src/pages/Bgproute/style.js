@@ -2,23 +2,26 @@ import {Form as Unform } from '@unform/web'
 
 import styled from 'styled-components';
 export const Container =  styled.section`
-   display: flex;
+    display: flex;
   flex-direction: column;
   align-items: center;
   margin-left: 200px;
-
-
+  >div{
+  margin-top: 40vh;
+  }
 `;
 export const Content =  styled.main`
-  max-width: 1150px;
+   width: 60%;
+  
+  /* max-width: 1150px; */
   /*max-width: 1300px; */
   background: #FFFFFF;
-  margin-top: 120px;
+  margin-top: 90px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  height: 400px;
-  margin-right: 10px;
-  margin-left: 10px;
-  
+  /* margin-right: 10px;
+  margin-left: 10px; */
+  min-height: 200px;
+  border-radius: 6px;
   `;
 
 
@@ -133,7 +136,7 @@ export const Search =  styled.section`
 
 
 export const Form = styled(Unform)`
-  width: 100%;
+  width: 60%;
   display: flex;
   
   font-size: 1rem;
